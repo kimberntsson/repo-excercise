@@ -1,4 +1,4 @@
-# Little Lemon Restaurant Management System
+# Little Lemon Capstone Project
 
 - [Little Lemon Restaurant Management System](#little-lemon-restaurant-management-system)
   - [Project Overview](#project-overview)
@@ -21,11 +21,11 @@
 
 ## Project Overview
 
-This project is designed to manage the operations of Little Lemon, a fast-food restaurant, and is a part of the **Meta Database Engineer Certificate** program on Coursera. The project employs MySQL for database modeling and Tableau for data analysis. The `Preparation` folder contains all the initial resources used to begin this project.
+This project is designed to manage the operations of Little Lemon, a fast-food restaurant, and is a part of the **Meta Database Engineer Certificate** program on Coursera. The project employs MySQL for database modeling and Tableau for data analysis. The `Initial data` folder contains all the initial resources used to begin this project.
 
 ## Entity-Relationship Diagram
 
-To view the Entity-Relationship Diagram, click here or see the image below.
+To view the Entity-Relationship Diagram, click here or see the image below created in MySQL Workbench. 
 
 ![Diagram](./Images/diagram.png)
 
@@ -43,7 +43,7 @@ To configure the database, follow these steps:
     - Select `Import from Self-Contained File` and load the `LittleLemonDB.sql` file.
     - Click `Start Import` to both import and execute the SQL commands contained in the file.
 
-Your database should now be set up and populated with all the necessary tables and stored procedures.
+
 
 ## Stored Procedures
 
@@ -213,9 +213,9 @@ END;
 CALL CancelOrder(5);
 ```
 
-## Data Analysis with Tableau
+## Tableau DA
 
-A Tableau workbook has been created containing various charts and dashboards to facilitate data analysis. Download the workbook [here](./tableau.twb)
+A Tableau workbook has been created containing various charts and dashboards. Download the workbook [here](./tableau.twb)
 
 ### Customer Sales
 ![Customer Sales](./Images/tableau-task1.png)
