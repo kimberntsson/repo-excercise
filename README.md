@@ -35,7 +35,7 @@ To configure the database, follow these steps:
 
 1. **Install MySQL**: Download and install MySQL on your computer if it is not already installed.
 
-2. **Download SQL File**: Obtain the [LittleLemonDB.sql](./LittleLemonDB.sql) file from this repository.
+2. **Download SQL File**: Obtain the [LittleLemonDB.sql](./LittleLemonDB.sql) file from this repository. And then use the LittleLemon_add_data.sql to insert values.
 
 3. **Import and Execute in MySQL Workbench**:
     - Open MySQL Workbench.
