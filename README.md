@@ -1,7 +1,7 @@
 # Little Lemon Restaurant Management System
 
 - [Little Lemon Restaurant Management System](#little-lemon-restaurant-management-system)
-  - [Project Description](#project-description)
+  - [Project Overview](#project-overview)
   - [Entity-Relationship Diagram](#entity-relationship-diagram)
   - [Installation and Setup](#installation-and-setup)
   - [Stored Procedures](#stored-procedures)
@@ -13,15 +13,15 @@
     - [AddValidBooking()](#addvalidbooking)
     - [CancelOrder()](#cancelorder)
   - [Data Analysis with Tableau](#data-analysis-with-tableau)
-    - [Customers sales](#customers-sales)
-    - [Profit chart](#profit-chart)
+    - [Customer Sales](#customer-sales)
+    - [Profit Chart](#profit-chart)
     - [Sales Bubble Chart](#sales-bubble-chart)
     - [Cuisine Sales and Profits](#cuisine-sales-and-profits)
     - [Dashboard](#dashboard)
 
-## Project Description
+## Project Overview
 
-This project is designed to manage the operations of the Little Lemon fast-food restaurant and is a part of the **Meta Database Engineer Certificate** course on Coursera. The project uses MySQL for database modeling and Tableau for data analysis. The `Preparation` folder contains all the initial files used to start working on this project.
+This project is designed to manage the operations of Little Lemon, a fast-food restaurant, and is a part of the **Meta Database Engineer Certificate** program on Coursera. The project employs MySQL for database modeling and Tableau for data analysis. The `Preparation` folder contains all the initial resources used to begin this project.
 
 ## Entity-Relationship Diagram
 
@@ -31,24 +31,24 @@ To view the Entity-Relationship Diagram, click here or see the image below.
 
 ## Installation and Setup
 
-To set up the database, do the following:
+To configure the database, follow these steps:
 
-1. **Install MySQL**: Download and install MySQL on your machine if you haven't done so.
+1. **Install MySQL**: Download and install MySQL on your computer if it is not already installed.
 
 2. **Download SQL File**: Obtain the [LittleLemonDB.sql](./LittleLemonDB.sql) file from this repository.
 
 3. **Import and Execute in MySQL Workbench**:
     - Open MySQL Workbench.
-    - Navigate to `Server` > `Data Import`.
-    - Choose `Import from Self-Contained File` and load the `LittleLemonDB.sql` file.
-    - Click `Start Import` to both import and execute the SQL commands from the file.
+    - Go to `Server` > `Data Import`.
+    - Select `Import from Self-Contained File` and load the `LittleLemonDB.sql` file.
+    - Click `Start Import` to both import and execute the SQL commands contained in the file.
 
-Your database should now be set up and populated with tables and stored procedures.
+Your database should now be set up and populated with all the necessary tables and stored procedures.
 
 ## Stored Procedures
 
 ### GetMaxQuantity()
-This stored procedure retrieves the maximum quantity of a specific item that has been ordered. It's useful for inventory management.
+This stored procedure retrieves the highest quantity of a specific item that has been ordered. It's helpful for managing inventory.
 
 ```sql
 CREATE PROCEDURE GetMaxQuantity()
@@ -67,7 +67,7 @@ CALL GetMaxQuantity()
 
 ### CheckBooking()
 
-The CheckBooking stored procedure validates whether a table is already booked on a specified date. It will output a status message indicating whether the table is available or already booked.
+The CheckBooking stored procedure checks if a table is already booked on a particular date. It outputs a message indicating whether the table is available or booked.
 
 ```sql
 CREATE PROCEDURE `LittleLemonDB`.`CheckBooking`(IN booking_date DATE, IN table_number INT)
@@ -91,8 +91,9 @@ END;
 ```sql
 CALL CheckBooking('2022-11-12', 3);
 ```
+
 ### UpdateBooking()
-This stored procedure updates the booking details in the database. It takes the booking ID and new booking date as parameters, making sure the changes are reflected in the system.
+This stored procedure updates the booking details in the database. It takes the booking ID and a new booking date as parameters, ensuring the updates are made within the system.
 
 ```sql
 CREATE PROCEDURE `LittleLemonDB`.`UpdateBooking`(
@@ -111,7 +112,7 @@ CALL `LittleLemonDB`.`UpdateBooking`(9, '2022-11-15');
 ```
 
 ### AddBooking() 
-This procedure adds a new booking to the system. It accepts multiple parameters like booking ID, customer ID, booking date, and table number to complete the process.
+This procedure adds a new booking to the system. It takes several parameters like booking ID, customer ID, booking date, and table number to complete the process.
 
 ```sql
 CREATE PROCEDURE `LittleLemonDB`.`AddBooking`(
@@ -143,7 +144,8 @@ CALL `LittleLemonDB`.`AddBooking`(17, 1, '2022-10-10', 5, 2);
 ```
 
 ### CancelBooking()
-This stored procedure deletes a specific booking from the database, allowing for better management and freeing up resources.
+This stored procedure deletes a specific booking from the database, enabling better management and freeing up resources.
+
 ```sql
 CREATE PROCEDURE `LittleLemonDB`.`CancelBooking`(IN booking_id_to_cancel INT)
 BEGIN
@@ -156,8 +158,9 @@ END;
 ```sql
 CALL `LittleLemonDB`.`CancelBooking`(9);
 ```
+
 ### AddValidBooking()
-The AddValidBooking stored procedure aims to securely add a new table booking record. It starts a transaction and attempts to insert a new booking record, checking the table's availability.
+The AddValidBooking stored procedure is designed to securely add a new table booking record. It starts a transaction and attempts to insert a new booking record after checking the table's availability.
 
 ```sql
 CREATE PROCEDURE `LittleLemonDB`.`AddValidBooking`(IN new_booking_date DATE, IN new_table_number INT, IN new_customer_id INT, IN new_staff_id INT)
@@ -185,7 +188,6 @@ END;
 CALL AddValidBooking('2022-10-10', 5, 1, 1);
 ```
 
-
 ### CancelOrder()
 The CancelOrder stored procedure cancels or removes a specific order by its Order ID. It executes a DELETE statement to remove the order record from the Orders table.
 
@@ -212,20 +214,20 @@ CALL CancelOrder(5);
 ```
 
 ## Data Analysis with Tableau
-A Tableau workbook has been created, containing various charts and dashboards to facilitate data analysis. Download the workbook [here](./tableau.twb)
 
-### Customers sales
-![Customers sales](./Images/tableau-task1.png)
+A Tableau workbook has been created containing various charts and dashboards to facilitate data analysis. Download the workbook [here](./tableau.twb)
 
-### Profit chart
-![Profit chart](./Images/tableau-task2.png)
+### Customer Sales
+![Customer Sales](./Images/tableau-task1.png)
+
+### Profit Chart
+![Profit Chart](./Images/tableau-task2.png)
 
 ### Sales Bubble Chart
 ![Sales Bubble Chart](./Images/tableau-task3.png)
 
-###  Cuisine Sales and Profits
-![ Cuisine Sales and Profits](./Images/tableau-task4.png)
+### Cuisine Sales and Profits
+![Cuisine Sales and Profits](./Images/tableau-task4.png)
 
 ### Dashboard
-![dashboard](./Images/tableau-task5.png)
-
+![Dashboard](./Images/tableau-task5.png)
