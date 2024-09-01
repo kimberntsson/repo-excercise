@@ -1,5 +1,5 @@
 # Little Lemon Capstone Project
-
+![Profile](115151038.jpg)
 - [Little Lemon Restaurant Management System](#little-lemon-restaurant-management-system)
   - [Project Overview](#project-overview)
   - [Entity-Relationship Diagram](#entity-relationship-diagram)
